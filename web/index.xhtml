@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Stats</title>
+</h:head>
+
+
+<h:body>
+
+<p:dataTable value="#{businessBean.usersList}" var="entry">
+    <p:column>
+        <f:facet name="header">
+            <h:outputText value="User"/>
+        </f:facet>
+        <h:outputText value="#{entry.key}"/>
+    </p:column>
+    <p:column>
+        <f:facet name="header">
+            <h:outputText value="Online"/>
+        </f:facet>
+        <h:outputText value="#{entry.value}"/>
+    </p:column>
+</p:dataTable>
+
+<p:panel>
+<p:chart type="line" model="#{businessBean.lineModel}" style="height: 300px;"/>
+</p:panel>
+</h:body>
+
+</html>
